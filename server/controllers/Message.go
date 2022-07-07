@@ -24,7 +24,7 @@ func (m *Message) Send(ctx context.Context, req *protos.SendMessage) (*protos.Re
 }
 func (m *Message) SendServerStream(req *protos.SendMessage, stream protos.Message_SendServerStreamServer) error {
 	var i int64
-	for i = 0; i < 2; i++ {
+	for i = 0; i < 10; i++ {
 		resp := &protos.ReceiveMessage{
 			Name:    req.Name + strconv.FormatInt(i, 10),
 			Age:     18,

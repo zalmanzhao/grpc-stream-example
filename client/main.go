@@ -54,7 +54,7 @@ func sendClientStream(c protos.MessageClient) {
 	if err != nil {
 		panic(err)
 	}
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 10; i++ {
 		err := stream.Send(&protos.SendMessage{Name: "ClientStream" + strconv.Itoa(i)})
 		if err != nil {
 			return
