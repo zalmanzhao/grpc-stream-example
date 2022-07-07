@@ -1,2 +1,5 @@
-./protos/*.go
-./.idea
+/.env
+/.idea
+.DS_Store
+*.pb.go
+go.sum
