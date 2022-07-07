@@ -1,0 +1,18 @@
+syntax = "proto3";
+package protos;
+option go_package ="/protos";
+
+message  SendMessage {
+  string name = 1;
+}
+message  ReceiveMessage {
+  string name = 1;
+  int32 age =2;
+  string address=3;
+}
+service Message {
+  rpc Send(SendMessage) returns (ReceiveMessage) {}
+  rpc SendServerStream(SendMessage) returns (stream ReceiveMessage) {}
+  rpc SendClientStream(stream SendMessage) returns (ReceiveMessage) {}
+  rpc SendClientServerStream(stream SendMessage) returns (stream ReceiveMessage) {}
+}
