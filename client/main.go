@@ -18,9 +18,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	//send(c)
-	//sendServerStream(c)
-	//sendClientStream(c)
+	send(c)
+	sendServerStream(c)
+	sendClientStream(c)
 	sendBidirectionalStream(c)
 }
 func send(c protos.MessageClient) {
