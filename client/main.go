@@ -26,7 +26,7 @@ func main() {
 func send(c protos.MessageClient) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.Send(ctx, &protos.SendMessage{Name: "UnaryAPI"})
+	r, err := c.Send(ctx, &protos.SendMessage{Name: "SimpleAPI"})
 	if err != nil {
 		panic(err)
 	}
@@ -59,6 +59,7 @@ func sendClientStream(c protos.MessageClient) {
 		if err != nil {
 			return
 		}
+		time.Sleep(1 * time.Second)
 	}
 	resp, err := stream.CloseAndRecv()
 	if err != nil {
