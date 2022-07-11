@@ -42,7 +42,7 @@ func (m *Message) SendClientStream(stream protos.Message_SendClientStreamServer)
 	var names []string
 	for {
 		resp := &protos.ReceiveMessage{
-			Name:    "ClientStream" + strings.Join(names, ","),
+			Name:    "ClientStream Processing Completed" + strings.Join(names, ","),
 			Age:     18,
 			Address: "beijing",
 		}
