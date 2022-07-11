@@ -62,7 +62,7 @@ func (m *Message) SendClientStream(stream protos.Message_SendClientStreamServer)
 		names = append(names, res.Name)
 	}
 }
-func (m *Message) SendBidirectionalStream(stream protos.Message_SendClientServerStreamServer) error {
+func (m *Message) SendBidirectionalStream(stream protos.Message_SendBidirectionalStreamServer) error {
 	for {
 		in, err := stream.Recv()
 		if err == io.EOF {
@@ -72,8 +72,9 @@ func (m *Message) SendBidirectionalStream(stream protos.Message_SendClientServer
 			log.Printf("failed to recv: %v", err)
 			return err
 		}
+		log.Println(in.Name)
 		resp := &protos.ReceiveMessage{
-			Name:    "ClientServerStream" + in.Name,
+			Name:    "BidirectionalStream" + in.Name,
 			Age:     18,
 			Address: "beijing",
 		}
