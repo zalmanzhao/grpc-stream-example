@@ -61,7 +61,7 @@ func (m *Message) SendClientStream(stream protos.Message_SendClientStreamServer)
 		names = append(names, res.Name)
 	}
 }
-func (m *Message) SendClientServerStream(stream protos.Message_SendClientServerStreamServer) error {
+func (m *Message) SendBidirectionalStream(stream protos.Message_SendClientServerStreamServer) error {
 	for {
 		in, err := stream.Recv()
 		if err == io.EOF {
