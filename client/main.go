@@ -18,10 +18,10 @@ func main() {
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	send(c)
-	sendServerStream(c)
-	sendClientStream(c)
-	SendBidirectionalStream(c)
+	//send(c)
+	//sendServerStream(c)
+	//sendClientStream(c)
+	sendBidirectionalStream(c)
 }
 func send(c protos.MessageClient) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
@@ -67,8 +67,8 @@ func sendClientStream(c protos.MessageClient) {
 	}
 	log.Printf("Recv Ms: %s", resp)
 }
-func SendBidirectionalStream(c protos.MessageClient) {
-	stream, err := c.SendClientServerStream(context.Background())
+func sendBidirectionalStream(c protos.MessageClient) {
+	stream, err := c.SendBidirectionalStream(context.Background())
 	if err != nil {
 		log.Fatal(err)
 	}
