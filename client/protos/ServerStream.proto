@@ -14,5 +14,5 @@ service Message {
   rpc Send(SendMessage) returns (ReceiveMessage) {}
   rpc SendServerStream(SendMessage) returns (stream ReceiveMessage) {}
   rpc SendClientStream(stream SendMessage) returns (ReceiveMessage) {}
-  rpc SendClientServerStream(stream SendMessage) returns (stream ReceiveMessage) {}
+  rpc SendBidirectionalStream(stream SendMessage) returns (stream ReceiveMessage) {}
 }
