@@ -47,6 +47,7 @@ func (m *Message) SendClientStream(stream protos.Message_SendClientStreamServer)
 			Address: "beijing",
 		}
 		res, err := stream.Recv()
+		log.Println(names)
 		if err == io.EOF {
 			err := stream.SendAndClose(resp)
 			if err != nil {
