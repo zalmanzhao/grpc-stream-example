@@ -21,7 +21,7 @@ func main() {
 	send(c)
 	sendServerStream(c)
 	sendClientStream(c)
-	sendClientServerStream(c)
+	SendBidirectionalStream(c)
 }
 func send(c protos.MessageClient) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
@@ -66,7 +66,7 @@ func sendClientStream(c protos.MessageClient) {
 	}
 	log.Printf("Recv Ms: %s", resp)
 }
-func sendClientServerStream(c protos.MessageClient) {
+func SendBidirectionalStream(c protos.MessageClient) {
 	stream, err := c.SendClientServerStream(context.Background())
 	if err != nil {
 		log.Fatal(err)
