@@ -10,4 +10,6 @@ protoc --go_out=./client --go-grpc_out=./client ./client/protos/*.proto
 
 #blog
 
-`learn in https://podsbook.com/posts/golang/stream/`
+```bash
+learn in https://podsbook.com/posts/golang/stream/
+```
