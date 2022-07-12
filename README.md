@@ -10,6 +10,6 @@ protoc --go_out=./client --go-grpc_out=./client ./client/protos/*.proto
 
 #blog
 
-```bash
+```yaml
 learn in https://podsbook.com/posts/golang/stream/
 ```
