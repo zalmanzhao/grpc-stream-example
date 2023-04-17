@@ -1,0 +1,17 @@
+syntax = "proto3";
+package protos;
+option go_package ="/protos";
+
+message UploadRequest {
+  string mime = 1;
+  bytes chunk = 2;
+  string name = 3;
+}
+
+message UploadResponse {
+  string name = 1;
+}
+
+service Upload {
+  rpc Upload(stream UploadRequest) returns (UploadResponse) {}
+}

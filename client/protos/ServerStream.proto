@@ -10,6 +10,7 @@ message  ReceiveMessage {
   int32 age =2;
   string address=3;
 }
+
 service Message {
   rpc Send(SendMessage) returns (ReceiveMessage) {}
   rpc SendServerStream(SendMessage) returns (stream ReceiveMessage) {}
